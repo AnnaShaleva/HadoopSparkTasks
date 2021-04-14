@@ -1,8 +1,8 @@
 #!/bin/sh
-input_directory=/gfs/bigdata-course/datasets/text
+input_directory=/datasets/text
 output_directory=/user/$USER/output-hadoop
 rm -rvf $output_directory
 yarn jar build/wordcount.jar \
-	-libjars /gfs/jars/lucene/6.2.0/lucene-core-6.2.0.jar \
-	-files /gfs/jars/lucene/6.2.0/lucene-core-6.2.0.jar \
+	-libjars /gfs/jars/lucene/6.2.0/lucene-core-6.2.0.jar,/gfs/jars/lucene/6.2.0/lucene-analyzers-common-6.2.0.jar \
+	-files /gfs/jars/lucene/6.2.0/lucene-core-6.2.0.jar,/gfs/jars/lucene/6.2.0/lucene-analyzers-common-6.2.0.jar \
     $input_directory $output_directory
